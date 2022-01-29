@@ -10,7 +10,7 @@ class Amenity(base_model.BaseModel):
     """
     class for all Amenities
     """
-    
+
     name = ""
 
     def __init__(self, *args, **kwargs):

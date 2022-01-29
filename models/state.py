@@ -10,7 +10,7 @@ class State(base_model.BaseModel):
     """
     class for all states
     """
-    
+
     name = ""
 
     def __init__(self, *args, **kwargs):

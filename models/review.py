@@ -10,7 +10,7 @@ class Review(base_model.BaseModel):
     """
     class for all reviews
     """
-    
+
     place_id = ""
     user_id = ""
     text = ""

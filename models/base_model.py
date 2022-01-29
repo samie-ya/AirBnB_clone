@@ -15,7 +15,7 @@ class BaseModel():
     """
     Base model for all classes
     """
-    
+
     def __init__(self, *args, **kwargs):
         """constructor method for each object"""
         if len(kwargs) > 0:
@@ -33,7 +33,7 @@ class BaseModel():
 
     def __str__(self):
         """Unofficial string representation of object"""
-        name  = self.__class__.__name__
+        name = self.__class__.__name__
         return "[{}] ({}) {}".format(name, self.id, str(self.__dict__))
 
     def save(self):

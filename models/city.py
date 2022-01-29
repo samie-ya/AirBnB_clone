@@ -10,7 +10,7 @@ class City(base_model.BaseModel):
     """
     class for all cities
     """
-    
+
     state_id = ""
     name = ""
 
