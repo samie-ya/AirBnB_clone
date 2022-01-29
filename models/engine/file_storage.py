@@ -5,26 +5,36 @@ import os
 
 
 class FileStorage:
-    """This is the class FileStorage"""
+    """This is the class FileStorage
 
+    Attributes:
+       __file_path (str): this will hold the name of jsonfile
+       __objects (dict): this will hold the key/value of name
+                             instance and id with instance
+    """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """This function returns the dictionary in __objects"""
+        """This function returns the dictionary in __objects
+
+        Returns:
+            The content of FileStorage.__objects
+        """
         return FileStorage.__objects
 
     def new(self, obj):
         """This function sets the obj with id and class name
 
-           Args:
-                obj (object): this is the object of the class
+        Args:
+            obj (object): this is the object of the class
         """
         class_name = type(obj).__name__ + "." + obj.id
         FileStorage.__objects[class_name] = obj
 
     def save(self):
         """This function serializes __objects to a json file"""
+
         with open(FileStorage.__file_path, "w", encoding='utf-8') as f:
             dic = {}
             for key, value in FileStorage.__objects.items():
@@ -33,7 +43,8 @@ class FileStorage:
 
     def reload(self):
         """This function deserializes the contents of json file
-           into __objects"""
+           into __objects
+        """
         from models.base_model import BaseModel
         from models.user import User
         from models.state import State
