@@ -1,57 +1,58 @@
 #!/usr/bin/python3
-
-
-"""
-Python script for Base model of all classes
-"""
-
-
+"""Ths will create class BaseModel that defines all common attributes
+/methods for other classes"""
 import uuid
-import datetime
+from datetime import datetime as date
 from models import storage
 
 
-class BaseModel():
-    """
-    Base model for all classes
-    """
+class BaseModel:
+    """This is the class base model"""
 
     def __init__(self, *args, **kwargs):
-        """constructor method for each object
+        """This is initialization of the class BaseModel
 
            Args:
-               args (tuple): This will not be taken into consideration
-               kwargs (dict): This will contain the result of to_dict()
+               *args (tuple): This argument takes non-keyword arguments
+               **kwargs (dic): This argument takes keyworded argumemnts
         """
-        if len(kwargs) > 0:
-            iso_create = kwargs['created_at']
-            iso_update = kwargs['updated_at']
-            kwargs.pop('__class__')
-            kwargs['created_at'] = datetime.datetime.fromisoformat(iso_create)
-            kwargs['updated_at'] = datetime.datetime.fromisoformat(iso_update)
-            self.__dict__ = kwargs
+        self.id = str(uuid.uuid4())
+        self.created_at = date.now()
+        self.updated_at = date.now()
+        if len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "updated_at":
+                    setattr(self, key, self.updated_at.strptime(value,
+                            "%Y-%m-%dT%H:%M:%S.%f"))
+                elif key == "created_at":
+                    setattr(self, key, self.created_at.strptime(value,
+                            "%Y-%m-%dT%H:%M:%S.%f"))
+                elif key != "__class__":
+                    setattr(self, key, value)
         else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.today()
-            self.updated_at = datetime.datetime.today()
             storage.new(self)
 
     def __str__(self):
-        """Unofficial string representation of object"""
-        name = self.__class__.__name__
-        return "[{}] ({}) {}".format(name, self.id, str(self.__dict__))
+        """This will be the string representation of class name, the id,
+           and dictionary when print or str is iused with the instance"""
+        return "[" + self.__class__.__name__ + "]" + " (" + self.id + ") \
+" + str(self.__dict__)
 
     def save(self):
-        """method to update date and time after modification"""
-        self.updated_at = datetime.datetime.today()
+        """This function will update the public attribute update_at with the
+           current time"""
+        self.updated_at = date.now()
         storage.save()
 
     def to_dict(self):
-        """This function will take the value of __dict__ and add a new key
-           __class__ and will change the format of created_at and updated_at
-           to a string format"""
-        instance_dict = (self.__dict__).copy()
-        instance_dict['created_at'] = (instance_dict['created_at']).isoformat()
-        instance_dict['updated_at'] = (instance_dict['updated_at']).isoformat()
-        instance_dict["__class__"] = self.__class__.__name__
-        return (instance_dict)
+        """This function will return a dictionary containing all key/value
+            of dict"""
+        x = {}
+        x.update(self.__dict__)
+        for key, value in x.items():
+            if key == "created_at":
+                x[key] = self.created_at.isoformat()
+            if key == "updated_at":
+                x[key] = self.updated_at.isoformat()
+        x["__class__"] = self.__class__.__name__
+        return x
