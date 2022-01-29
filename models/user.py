@@ -17,5 +17,10 @@ class User(base_model.BaseModel):
     last_name = ""
 
     def __init__(self, *args, **kwargs):
-        """constructor method for User class"""
+        """constructor method for User class
+
+           Args:
+               args (tuple): This will not be taken into consideration
+               kwargs (dict): This will contain the result of to_dict()
+        """
         super().__init__(self, *args, **kwargs)

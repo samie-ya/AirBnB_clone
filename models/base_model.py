@@ -17,7 +17,12 @@ class BaseModel():
     """
 
     def __init__(self, *args, **kwargs):
-        """constructor method for each object"""
+        """constructor method for each object
+
+           Args:
+               args (tuple): This will not be taken into consideration
+               kwargs (dict): This will contain the result of to_dict()
+        """
         if len(kwargs) > 0:
             iso_create = kwargs['created_at']
             iso_update = kwargs['updated_at']
@@ -42,6 +47,9 @@ class BaseModel():
         storage.save()
 
     def to_dict(self):
+        """This function will take the value of __dict__ and add a new key
+           __class__ and will change the format of created_at and updated_at
+           to a string format"""
         instance_dict = (self.__dict__).copy()
         instance_dict['created_at'] = (instance_dict['created_at']).isoformat()
         instance_dict['updated_at'] = (instance_dict['updated_at']).isoformat()
