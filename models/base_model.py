@@ -12,9 +12,9 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """This is initialization of the class BaseModel
 
-           Args:
-               *args (tuple): This argument takes non-keyword arguments
-               **kwargs (dic): This argument takes keyworded argumemnts
+        Args:
+            *args (tuple): This argument takes non-keyword arguments
+            **kwargs (dic): This argument takes keyworded argumemnts
         """
         self.id = str(uuid.uuid4())
         self.created_at = date.now()
@@ -34,7 +34,11 @@ class BaseModel:
 
     def __str__(self):
         """This will be the string representation of class name, the id,
-           and dictionary when print or str is iused with the instance"""
+           and dictionary when print or str is iused with the instance
+
+        Returns:
+            The string representation of class name, id and dictionary
+        """
         return "[" + self.__class__.__name__ + "]" + " (" + self.id + ") \
 " + str(self.__dict__)
 
@@ -46,7 +50,11 @@ class BaseModel:
 
     def to_dict(self):
         """This function will return a dictionary containing all key/value
-            of dict"""
+           of dict
+
+        Returns:
+            The modified dictionary that contains the values of self.__dict__
+        """
         x = {}
         x.update(self.__dict__)
         for key, value in x.items():
