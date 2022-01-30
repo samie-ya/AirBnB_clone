@@ -66,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
                         argument = object_id + ' ' + each_key + ' ' + str(val)
                         argument = argument.replace(',', '', 1)
                         self.do_update(class_name + ' ' + argument)
-                except:
+                except Exception as e:
                     print("*** Unknown syntax: {}".format(line))
             else:
                 argument = argument.replace(',', '')
