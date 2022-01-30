@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 from unittest.mock import patch
 from datetime import datetime as date
 import uuid
-import pycodestyle
+import pep8
 
 
 today = date.now()
@@ -23,7 +23,7 @@ class TestBaseModel(unittest.TestCase):
 
     def test_conformance(self):
         "This tests to confirm to PEP-8"
-        style = pycodestyle.StyleGuide(quiet=True)
+        style = pep8.StyleGuide(quiet=True)
         res = style.check_files(['models/base_model.py'])
         self.assertEqual(res.total_errors, 0, "Found style error")
 
