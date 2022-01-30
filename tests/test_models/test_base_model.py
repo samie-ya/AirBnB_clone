@@ -3,33 +3,67 @@
 import unittest
 from models.base_model import BaseModel
 from unittest.mock import patch
-import datetime
-count = 0
-def mock_uid():
-    global count
-    count += 1
-    return uuid.uuid()
+from datetime import datetime as date
+import uuid
+
+
+today = date.now()
+later = date.now()
+now = date.now()
+id1 = str(uuid.uuid4())
+
 
 class TestBaseModel(unittest.TestCase):
     """This class is going to use the TestCase and check
        the function and attribute in class BaseModel"""
-    def setUp(self, **kwargs):
-        self.base  = BaseModel()
-        self.__create_obj
+
+    def setUp(self):
+        self.b = BaseModel()
 
     def test_create_at(self):
-        with patch('datetime.datetime') as dt:
-            dt.now.return_value = '2022-01-28 19:09:33.962098'
-            res = self.base.created_at
-            self.assertEqual(self.base.created_at, res)
+        self.b.created_at = today
+        self.assertEqual(self.b.created_at, today)
 
-    def test_update_at(self):
-        with patch('datetime.datetime') as dt:
-            dt.now.return_value = '2022-01-28 19:09:33.962345'
-            res = self.base.updated_at
-            self.assertEqual(self.base.updated_at, res)
+    def test_updated_at(self):
+        self.b.updated_at = later
+        self.assertEqual(self.b.updated_at, later)
 
-    @patch('uuid.uuid4', mock_uid)
-    def __create_obj(self):
-        self.assertEqual(self.base.id, "abe7c0b1-da34-4fa4-ad10-0b444030b77c")
-        
+    def test_id(self):
+        self.b.id = id1
+        self.assertEqual(self.b.id, id1)
+
+    def test_save(self):
+        self.b.updated_at = now
+        self.assertEqual(self.b.updated_at, now)
+
+    def test_str(self):
+        self.b.created_at = today
+        self.b.updated_at = later
+        self.b.id = id1
+        on_screen = "[" + type(self.b).__name__ + "]" + " (" + self.b.id + ") \
+" + str(self.b.__dict__)
+        self.assertEqual(str(self.b), on_screen)
+
+    def test_to_dict(self):
+        self.b.created_at = today
+        self.b.updated_at = later
+        self.b.id = id1
+        dic = self.b.to_dict()
+        dis = {'updated_at': self.b.updated_at.isoformat(),
+               'created_at': self.b.created_at.isoformat(),
+               '__class__': str(type(self.b).__name__),
+               'id': self.b.id}
+        self.assertEqual(dic, dis)
+
+    def test_arguments(self):
+        self.b.created_at = today
+        self.b.updated_at = later
+        self.b.id = id1
+        dic = self.b.to_dict()
+        bs = BaseModel(**dic)
+        self.assertEqual(bs.id, self.b.id)
+        self.assertEqual(bs.created_at, self.b.created_at)
+        self.assertEqual(bs.updated_at, self.b.updated_at)
+
+    def tearDown(self):
+        self.b = None

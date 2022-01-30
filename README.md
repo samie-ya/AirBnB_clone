@@ -35,26 +35,26 @@ ce was updated</li></ul></li>
 </ol>
 <hr />
 <p>Lets see examples that sum up the BaseModel class</p>
-<p>my\_model = BaseModel()</p>
-<p>my\_model.name = "My First Model"</p>
-<p>my\_model.number = 89</p>
-<p>print(my\_model)</p>
-<p>my\_model.save()</p>
-<p>print(my\_model)</p>
-<p>my\_model\_json = mymodel.to\_dict()</p>
-<p>print(mymodel\_json)</p>
+<p>my_model = BaseModel()</p>
+<p>my_model.name = "My First Model"</p>
+<p>my_model.number = 89</p>
+<p>print(my_model)</p>
+<p>my_model.save()</p>
+<p>print(my_model)</p>
+<p>my_model_json = mymodel.to_dict()</p>
+<p>print(mymodel_json)</p>
 <strong>Result</strong>
-<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
-<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
-<p>{'number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated\_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created\_at': '2017-09-28T21:05:54.119427'}</p>
+<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
+<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119572), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
+<p>{'number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': '2017-09-28T21:05:54.119427'}</p>
 <hr />
 <p>BaseModel also handles "kwargs"</p>
 <p>Th args will not be used but when kwargs is given it will return the changes made by to\_dict function to their original __dict__ version. This means __class__ will be removed, the datetimes will be converted to tehir datetime format.</p>
 <p>Let us use the above example</p>
-<p>new\_model = BaseModel(\*\*mymodeljson)</p>
-<p>print(new\_model)</p>
+<p>new_model = BaseModel(mymodeljson)</p>
+<p>print(new_model)</p>
 <strong>Result</strong>
-<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
+<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
 <h2>The File Storage</h2>
 <p>We will the proceed to creatig a storage file that will have the class <strong>FileStorage</strong></p>
 <p>This file storage will work on serilization and deserilization of json file, where all instances created will be stored and retrived from.</p>
@@ -70,38 +70,38 @@ ce was updated</li></ul></li>
 <li><strong>all</strong><ul>
 <li>This function will return dictionary stored in FileStorage.\_\_objects</li></ul></li>
 <li><strong>new</strong><ul>
-<li>This function will take an instance and takes the name and id to make <q><class name>.id</q> which will the use it as a key to assign it the instance as a value to be stored in FileStorage.\_\_objects.</li>
-<li>This function will be called in the basemodel every time a new instance is called.</li></ul></li>
+<li>This function will take an instance and takes the name and id to make <q><class name>.id</q> which will the use it as a key to assign it the instance as a value to be stored in objects instance.</li>
+<li>This function will be called in the basemodel every time a new instance is called.</li></ul></li> 
 <li><strong>save</strong><ul>
-<li>This function will store the dictionary FileStorage.\_\_objects into the json path indicated by FileStorage.\_\_file\_path</li>
+<li>This function will store the dictionary objects instance into the json path indicated by file_path</li>
 <li>This function will be called in the BaseModel function save(), so whenever the instance is changed it will be saved and that saved instance will also be updated on the json file</li></ul></li>
 <li><strong>reload</strong><ul>
-<li>This function will read from json file and convert it to the form of dictionary that FileStorage.\_\_objects uses.</li>
+<li>This function will read from json file and convert it to the form of dictionary that objects instance uses.</li>
 <li>This function will be called inside the __init__ .py file</li></ul></li>
 </ol>
 <p>Let us see this as a continuation of the above example. Note my\_model.save() was called in the above example</p>
 
-<p>all\_objs = storage.all()</p>
-<p>for obj\_id in all\_objs.keys():</p>
-<p>    obj = all\_objs[obj\_id]</p>
+<p>all_objs = storage.all()</p>
+<p>for obj_id in all_objs.keys():</p>
+<p>    obj = all_objs[obj_id]</p>
 <p>    print(obj)</p>
 <strong>Result</strong>
-<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
+<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
 
 <p>let us create another one</p>
 
 <p>model = BaseModel()</p>
 <p>model.name = "last name"</p>
-<p>model.my\_number = 100</p>
+<p>model.my_number = 100</p>
 <p>model.save()</p>
 
 <p>Now let us call the storage.all() as above</p>
 
-<p>all\_objs = storage.all()</p>
-<p>for obj\_id in all\_objs.keys():</p>
-<p>    obj = all\_objs[obj\_id]</p>
+<p>all_objs = storage.all()</p>
+<p>for obj_id in all_objs.keys():</p>
+<p>    obj = all_objs[obj_id]</p>
 <p>    print(obj)</p>
 <strong>Result</strong>
-<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created\_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
-<p>[BaseModel] (s9r6r89g-o97p-9453-3h89-1d586975u589) {'number': 100, 'name': 'last name', 'updated\_at': datetime.datetime(2017, 9, 28, 21, 7, 54, 110434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created\_at': datetime.datetime(2017, 9, 28, 21, 7, 54, 114778)}</p>
+<p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
+<p>[BaseModel] (s9r6r89g-o97p-9453-3h89-1d586975u589) {'number': 100, 'name': 'last name', 'updated_at': datetime.datetime(2017, 9, 28, 21, 7, 54, 110434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 7, 54, 114778)}</p>
 <p>We can now see that two instances are stored in storage or json file</p>
