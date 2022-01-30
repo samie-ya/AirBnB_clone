@@ -6,6 +6,7 @@ from models.amenity import Amenity
 from unittest.mock import patch
 from datetime import datetime as date
 import uuid
+import pycodestyle
 
 
 today = date(year=2022, month=1, day=30)
@@ -20,6 +21,12 @@ class TestAmenity(unittest.TestCase):
 
     def setUp(self):
         self.a = Amenity()
+
+    def test_conformance(self):
+        "This tests to confirm to PEP-8"
+        style = pycodestyle.StyleGuide(quiet=True)
+        res = style.check_files(['models/amenity.py'])
+        self.assertEqual(res.total_errors, 0, "Found style error")
 
     def test_create_at(self):
         self.a.created_at = today

@@ -8,6 +8,7 @@ from models.user import User
 from unittest.mock import patch
 from datetime import datetime as date
 import uuid
+import pycodestyle
 
 
 today = date(year=2022, month=1, day=30)
@@ -28,6 +29,12 @@ class TestReview(unittest.TestCase):
         self.p.id = id2
         self.u = User()
         self.u.id = id3
+
+    def test_conformance(self):
+        "This tests to confirm to PEP-8"
+        style = pycodestyle.StyleGuide(quiet=True)
+        res = style.check_files(['models/review.py'])
+        self.assertEqual(res.total_errors, 0, "Found style error")
 
     def test_create_at(self):
         self.r.created_at = today
