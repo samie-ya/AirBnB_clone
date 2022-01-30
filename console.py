@@ -55,26 +55,21 @@ class HBNBCommand(cmd.Cmd):
                     count += 1
             print(count)
         elif (function_name == 'update'):
-            argument = argument.replace(',', '')
             args = argument.split(' ', 1)
             if ((args[1])[0] == '{' and (args[1])[len(args[1]) - 1] == '}'):
                 try:
                     args[1] = (args[1]).replace("'", '"')
                     dict_rep = json.loads(args[1])
-                    print(dict_rep)
-                    print(type(dict_rep))
                     object_id = args[0]
-                    print(object_id)
                     for each_key in dict_rep:
-                        print("in loop")
                         value = dict_rep[each_key]
-                        print(value)
                         argument = object_id + ' ' + each_key + ' ' + value
+                        argument = argument.replace(',', '', 1)
                         self.do_update(class_name + ' ' + argument)
-                except Exception as e:
-                    print(e)
+                except:
                     print("*** Unknown syntax: {}".format(line))
             else:
+                argument = argument.replace(',', '')
                 self.do_update(class_name + ' ' + argument)
         else:
             print("*** Unknown syntax: {}".format(line))
