@@ -35,14 +35,14 @@ class TestFileStorage(unittest.TestCase):
     def test_conformance(self):
         "This tests to confirm to PEP-8"
         style = pycodestyle.StyleGuide(quite=True)
-        res = style.check_files(['models.base_model.py',
-                                 'models.user.py',
-                                 'models.amenity.py',
-                                 'models.city.py',
-                                 'models.state.py',
-                                 'models.place.py',
-                                 'models.review.py',
-                                 'models.engine.file_storage.py'])
+        res = style.check_files(['models/base_model.py',
+                                 'models/user.py',
+                                 'models/amenity.py',
+                                 'models/city.py',
+                                 'models/state.py',
+                                 'models/place.py',
+                                 'models/review.py',
+                                 'models/engine/file_storage.py'])
         self.assertEqual(res.total_errors, 0, "Found style error")
 
     def test_all(self):
