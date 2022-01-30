@@ -18,31 +18,25 @@ class TestBaseModel(unittest.TestCase):
        the function and attribute in class BaseModel"""
 
     def setUp(self):
-        """setup method for testing"""
         self.b = BaseModel()
 
     def test_create_at(self):
-        """Test for accurate created_at time"""
         self.b.created_at = today
         self.assertEqual(self.b.created_at, today)
 
     def test_updated_at(self):
-        """Test for accurate updated_at time"""
         self.b.updated_at = later
         self.assertEqual(self.b.updated_at, later)
 
     def test_id(self):
-        """Test for the id of instance"""
         self.b.id = id1
         self.assertEqual(self.b.id, id1)
 
     def test_save(self):
-        """Test for the save method of base model class"""
         self.b.updated_at = now
         self.assertEqual(self.b.updated_at, now)
 
     def test_str(self):
-        """Test for string representation of object"""
         self.b.created_at = today
         self.b.updated_at = later
         self.b.id = id1
@@ -51,7 +45,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str(self.b), on_screen)
 
     def test_to_dict(self):
-        """Test for proper dictionary representation of object"""
         self.b.created_at = today
         self.b.updated_at = later
         self.b.id = id1
@@ -63,7 +56,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(dic, dis)
 
     def test_arguments(self):
-        """Test for all arguments of instance"""
         self.b.created_at = today
         self.b.updated_at = later
         self.b.id = id1
@@ -74,5 +66,4 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(bs.updated_at, self.b.updated_at)
 
     def tearDown(self):
-        """Teardown method for test class"""
         self.b = None

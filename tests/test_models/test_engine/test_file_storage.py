@@ -21,7 +21,7 @@ class TestFileStorage(unittest.TestCase):
     """
 
     def setUp(self):
-        """creating instance of FileStorage"""
+        """setup method for testing"""
         self.storage = FileStorage()
         self.basemodel = BaseModel()
         self.user = User()
@@ -32,9 +32,7 @@ class TestFileStorage(unittest.TestCase):
         self.review = Review()
 
     def test_all(self):
-        file_path = 'file.json'
-        with open(file_path, "w", encoding='utf-8') as f:
-            f.write('')
+        """This tests the function all in file_storage"""
         all_objects = self.storage.all()
         base_key = 'BaseModel.' + self.basemodel.id
         self.assertEqual(all_objects[base_key], self.basemodel)
@@ -52,6 +50,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(all_objects[rev_key], self.review)
 
     def test_save(self):
+        """This function will test the save function of file_storage"""
         file_path = 'file.json'
         with open(file_path, "w", encoding='utf-8') as f:
             f.write('')
@@ -75,7 +74,41 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(all_objects[rev_key], self.review.to_dict())
 
     def test_new(self):
-        self.new_user = User()
+        """This function will test the new function of storage"""
+        self.user = User()
         current_objects = self.storage.all()
-        new_key = 'User.' + self.new_user.id
-        self.assertEqual(current_objects[new_key], self.new_user)
+        new_key = 'User.' + self.user.id
+        self.assertEqual(current_objects[new_key], self.user)
+        self.basemodel = BaseModel()
+        new_key = 'BaseModel.' + self.basemodel.id
+        self.assertEqual(current_objects[new_key], self.basemodel)
+        self.amenity = Amenity()
+        new_key = 'Amenity.' + self.amenity.id
+        self.assertEqual(current_objects[new_key], self.amenity)
+        self.city = City()
+        new_key = 'City.' + self.city.id
+        self.assertEqual(current_objects[new_key], self.city)
+        self.state = State()
+        new_key = 'State.' + self.state.id
+        self.assertEqual(current_objects[new_key], self.state)
+        self.place = Place()
+        new_key = 'Place.' + self.place.id
+        self.assertEqual(current_objects[new_key], self.place)
+        self.review = Review()
+        new_key = 'Review.' + self.review.id
+        self.assertEqual(current_objects[new_key], self.review)
+
+    def tearDown(self):
+        """Tears down the attributes set in setup"""
+        self.storage = None
+        self.basemodel = None
+        self.user = None
+        self.amenity = None
+        self.city = None
+        self.state = None
+        self.place = None
+        self.review = None
+
+
+if __name__ == '__main__':
+    unittest.main()

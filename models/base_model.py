@@ -3,7 +3,7 @@
 /methods for other classes"""
 import uuid
 from datetime import datetime as date
-import models
+from models import storage
 
 
 class BaseModel:
@@ -30,7 +30,7 @@ class BaseModel:
                 elif key != "__class__":
                     setattr(self, key, value)
         else:
-            models.storage.new(self)
+            storage.new(self)
 
     def __str__(self):
         """This will be the string representation of class name, the id,
@@ -46,7 +46,7 @@ class BaseModel:
         """This function will update the public attribute update_at with the
            current time"""
         self.updated_at = date.now()
-        models.storage.save()
+        storage.save()
 
     def to_dict(self):
         """This function will return a dictionary containing all key/value

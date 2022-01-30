@@ -2,13 +2,6 @@
 """This will create a File Storage to serialize and deserialize"""
 import json
 import os
-from ..base_model import BaseModel
-from ..user import User
-from ..amenity import Amenity
-from ..state import State
-from ..city import City
-from ..place import Place
-from ..review import Review
 
 
 class FileStorage:
@@ -52,6 +45,13 @@ class FileStorage:
         """This function deserializes the contents of json file
            into __objects
         """
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
         classes = {'BaseModel': BaseModel, 'User': User, 'State': State,
                    'City': City, 'Amenity': Amenity, 'Place': Place,
                    'Review': Review}
