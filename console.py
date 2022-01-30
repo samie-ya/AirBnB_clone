@@ -62,8 +62,8 @@ class HBNBCommand(cmd.Cmd):
                     dict_rep = json.loads(args[1])
                     object_id = args[0]
                     for each_key in dict_rep:
-                        value = dict_rep[each_key]
-                        argument = object_id + ' ' + each_key + ' ' + value
+                        val = dict_rep[each_key]
+                        argument = object_id + ' ' + each_key + ' ' + str(val)
                         argument = argument.replace(',', '', 1)
                         self.do_update(class_name + ' ' + argument)
                 except:
