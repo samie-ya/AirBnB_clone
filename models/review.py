@@ -1,25 +1,10 @@
 #!/usr/bin/python3
-"""
-reviews module
-"""
-
-from models import base_model
+"""This will create a Review class"""
+from models.base_model import BaseModel
 
 
-class Review(base_model.BaseModel):
-    """
-    class for all reviews
-    """
-
+class Review(BaseModel):
+    """This class is Review class that inherits from Basemodel"""
     place_id = ""
-    user_id = ""
+    used_id = ""
     text = ""
-
-    def __init__(self, *args, **kwargs):
-        """constructor method for all cities
-
-           Args:
-               args (tuple): This will not be taken into consideration
-               kwargs (dict): This will contain the result of to_dict()
-        """
-        super().__init__(self, *args, **kwargs)
