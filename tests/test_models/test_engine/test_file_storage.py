@@ -42,6 +42,7 @@ class TestFileStorage(unittest.TestCase):
     def test_all(self):
         """This tests the function all in file_storage"""
         all_objects = self.storage.all()
+        self.assertEqual(all_objects, self.storage._FileStorage__objects)
         base_key = 'BaseModel.' + self.basemodel.id
         self.assertEqual(all_objects[base_key], self.basemodel)
         user_key = 'User.' + self.user.id
