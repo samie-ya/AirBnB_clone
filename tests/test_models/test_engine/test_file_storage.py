@@ -3,7 +3,7 @@
 Test module for file storage
 """
 
-import pep8
+import pycodestyle
 import json
 import unittest
 from models.base_model import BaseModel
@@ -24,6 +24,7 @@ class TestFileStorage(unittest.TestCase):
     def setUp(self):
         """setup method for testing"""
         self.storage = FileStorage()
+        self.storage._FileStorage__file_path = "file.json"
         self.basemodel = BaseModel()
         self.user = User()
         self.amenity = Amenity()
@@ -34,7 +35,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_conformance(self):
         "This tests to confirm to PEP-8"
-        style = pep8.StyleGuide(quiet=True)
+        style = pycodestyle.StyleGuide(quiet=True)
         res = style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(res.total_errors, 0, "Found style error")
 
