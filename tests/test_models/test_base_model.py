@@ -10,7 +10,7 @@ import pycodestyle
 
 today = date.now()
 later = date.now()
-now = date.now()
+now = date.utcnow()
 id1 = str(uuid.uuid4())
 
 
@@ -40,12 +40,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.b.id, id1)
 
     def test_save(self):
-        self.b.created_at = today
-        self.b.updated_at = now
         self.b.save()
-        on_screen = "[" + type(self.b).__name__ + "]" + " (" + self.b.id + ") \
-" + str(self.b.__dict__)
-        self.assertEqual(str(self.b), on_screen)
+        self.assertNotEqual(self.b.updated_at, now)
 
     def test_str(self):
         self.b.created_at = today
