@@ -49,7 +49,7 @@ ce was updated</li></ul></li>
 <p>{'number': 89, 'name': 'My First Model', '__class__': 'BaseModel', 'updated_at': '2017-09-28T21:05:54.119572', 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': '2017-09-28T21:05:54.119427'}</p>
 <hr />
 <p>BaseModel also handles "kwargs"</p>
-<p>Th args will not be used but when kwargs is given it will return the changes made by to\_dict function to their original __dict__ version. This means __class__ will be removed, the datetimes will be converted to tehir datetime format.</p>
+<p>The args will not be used but when kwargs is given it will return the changes made by to_dict function to their original __dict__ version. This means __class__ will be removed, the datetimes will be converted to tehir datetime format.</p>
 <p>Let us use the above example</p>
 <p>new_model = BaseModel(mymodeljson)</p>
 <p>print(new_model)</p>
@@ -68,7 +68,7 @@ ce was updated</li></ul></li>
 <p>It consists of 4 functions.</p>
 <ol>
 <li><strong>all</strong><ul>
-<li>This function will return dictionary stored in FileStorage.\_\_objects</li></ul></li>
+<li>This function will return dictionary stored in FileStorage.objects</li></ul></li>
 <li><strong>new</strong><ul>
 <li>This function will take an instance and takes the name and id to make <q><class name>.id</q> which will the use it as a key to assign it the instance as a value to be stored in objects instance.</li>
 <li>This function will be called in the basemodel every time a new instance is called.</li></ul></li> 
@@ -79,7 +79,7 @@ ce was updated</li></ul></li>
 <li>This function will read from json file and convert it to the form of dictionary that objects instance uses.</li>
 <li>This function will be called inside the __init__ .py file</li></ul></li>
 </ol>
-<p>Let us see this as a continuation of the above example. Note my\_model.save() was called in the above example</p>
+<p>Let us see this as a continuation of the above example. Note my_model.save() was called in the above example</p>
 
 <p>all_objs = storage.all()</p>
 <p>for obj_id in all_objs.keys():</p>
@@ -105,3 +105,48 @@ ce was updated</li></ul></li>
 <p>[BaseModel] (b6a6e15c-c67d-4312-9a75-9d084935e579) {'number': 89, 'name': 'My First Model', 'updated_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 5, 54, 119427)}</p>
 <p>[BaseModel] (s9r6r89g-o97p-9453-3h89-1d586975u589) {'number': 100, 'name': 'last name', 'updated_at': datetime.datetime(2017, 9, 28, 21, 7, 54, 110434), 'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579', 'created_at': datetime.datetime(2017, 9, 28, 21, 7, 54, 114778)}</p>
 <p>We can now see that two instances are stored in storage or json file</p>
+<h2>The console</h2>
+<p>This console acts like a shell, but limited to a specific use-case. In our case, we want to be able to manage the objects of our project.</p>
+<ol>
+<p>It has 5 properties</p>
+<ol>
+<li><strong>Create</strong><ul>
+<li>Creates a new instance, saves it (to the JSON file) and prints the id</li></ul></li>
+<li><strong>Show</strong><ul>
+<li>Prints the string representation of an instance based on the class name and id</li></ul></li>
+<li><strong>All</strong><ul>
+<li>Prints all string representation of all instances based or not on the class name</li></ul></li>
+<li><strong>Destroy</strong><ul>
+<li>Deletes an instance based on the class name and id (save the change into the JSON file).</li></ul></li>
+<li><strong>Update</strong><ul>
+<li>Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)</li></ul></li>
+</ol>
+<p>It also has quit and EOF properties for exiting the console.</p>
+<hr />
+<p>Now we will see the console in action</p>
+<p>./console</p>
+<p>(hbtn) </p>
+<p>(hbtn) create BaseModel</p>
+<p>49faff9a-6318-451f-87b6-910505c55907</p>
+<p>(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907</p>
+<p>[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}</p>
+<p>(hbnb) all BaseModel</p>
+<p>\["[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}"]</p>
+<p>(hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"</p>
+<p>(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907</p>
+<p>[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}</p>
+<p>(hbnb) create BaseModel</p>
+<p>2dd6ef5c-467c-4f82-9521-a772ea7d84e9</p>
+<p>(hbnb) all BaseModel</p>
+<p>\["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}", "[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]</p>
+<p>(hbnb) destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907</p>
+<p>(hbnb) all BaseModel</p>
+<p>\["[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}"]</p>
+
+<p>We hope You enjoy it.</p>
+
+<p><strong>Authors</strong></p>
+<ol>
+<li>Opeyemi Ogunbode</li>
+<li>Samra Barnabas</li>
+</ol>
