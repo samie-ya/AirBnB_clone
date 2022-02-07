@@ -78,6 +78,7 @@ div.locations ul.popover {
     border-radius: 4px;
     padding-top: 20px;
     padding-bottom: 20px;
+    z-index: 1;
 }
 
 div.locations ul.popover li h2 {
@@ -85,6 +86,7 @@ div.locations ul.popover li h2 {
     text-indent: 25px;
 }
 div.locations ul.popover li {
+    display: block;
     text-indent: 50px;
     margin: 5px 0;
 }
@@ -100,12 +102,11 @@ div.amenities ul.popover {
     min-width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    z-index: 1;
 }
 div.amenities ul.popover li {
+    display: block;
     text-indent: 50px;
-    margin: 5px 0;
 }
 
 div.amenities:hover ul.popover {
