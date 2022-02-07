@@ -98,6 +98,7 @@ div.amenities ul.popover {
     display: none;
     position: absolute;
     top: 100%;
+    padding: 20px 0 20px 0;
     background-color: #FAFAFA;
     min-width: 100%;
     border: 1px solid #DDDDDD;
@@ -107,6 +108,7 @@ div.amenities ul.popover {
 div.amenities ul.popover li {
     display: block;
     text-indent: 50px;
+    margin: 5px 0;
 }
 
 div.amenities:hover ul.popover {
