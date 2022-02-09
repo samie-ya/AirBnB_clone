@@ -1,3 +1,14 @@
+body {
+     display: flex;
+     flex-direction: column;
+}
+footer {
+     all: unset;
+     background-color: white;
+     height: 60px;
+     width: 100%;
+     border-top: 1px solid #CCCCCC;
+}
 .container section.places {
      margin-top: 20px;
      box-sizing: border-box;
@@ -16,7 +27,7 @@
      border-radius: 4px;
 }
 
-.container section.places article h2 {
+article h2 {
      font-size: 30px;
      text-align: center;
 }
@@ -69,7 +80,7 @@ div.information .number_rooms {
      display: inline-block;
      height: 100%;
      width: 100px;
-     background-image: url('/AirBnB_clone/web_static/images//icon_bed.png');
+     background-image: url('/AirBnB_clone/web_static/images/icon_bed.png');
      background-repeat: no-repeat;
      background-position: top 10px left 25px;
      position: relative;
@@ -86,7 +97,7 @@ div.information .number_bathrooms {
      display: inline-block;
      height: 100%;
      width: 100px;
-     background-image: url('/AirBnB_clone/web_static/images//icon_bath.png');
+     background-image: url('/AirBnB_clone/web_static/images/icon_bath.png');
      background-repeat: no-repeat;
      background-position: left 10px;
      position: relative; 
@@ -101,7 +112,4 @@ div.number_bathrooms p {
 
 article div.user {
      padding: 10px 0 10px 0; 
-}
-
-article div.description {
 }

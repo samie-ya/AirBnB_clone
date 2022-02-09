@@ -1,0 +1,49 @@
+header {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    background-image: url('/AirBnB_clone/web_static/images/logo.png');
+    background-repeat: no-repeat;
+    background-position: top left 20px;
+}
+
+@media only screen and (max-width: 600px) {
+      header {
+          clear: both;
+          height: 40px;
+          background-size: 100px;
+      }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+      header {
+          clear: both;
+          height: 40px;
+          background-size: 100px;
+      }
+}
+
+@media only screen and (min-width: 768px) {
+      header {
+          clear: both;
+          height: 40px;
+          background-size: 100px;
+      }
+}
+
+@media only screen and (min-width: 992px) {
+      header {
+          clear: both;
+          height: 60px;
+          background-size: 150px;
+      }
+}
+
+@media only screen and (min-width: 1200px) {
+      header {
+          clear: both;
+          height: 60px;
+          background-size: 150px;
+      }
+}

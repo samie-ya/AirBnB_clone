@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;  
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+      .container {
+           clear: both;
+           width: 100%;
+           margin: 20px auto;     
+     }
+
+     body {
+           clear: both;
+           font-size: 14px;
+     }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+      .container {
+           clear: both;
+           width: 100%;
+           margin: 20px auto;     
+     }
+
+     body {
+           clear: both;
+           font-size: 14px;
+     }
+}
+
+@media only screen and (min-width: 768px) {
+      .container {
+           clear: both;
+           width: 100%;
+           margin: 20px auto;     
+     }
+
+     body {
+           clear: both;
+           font-size: 16px;
+     }
+}
+
+@media only screen and (min-width: 992px) {
+      .container {
+           clear: both;
+           width: 100%;
+           margin: 30px auto;     
+     }
+
+     body {
+           clear: both;
+           font-size: 16px;
+     }
+}
+
+@media only screen and (min-width: 1200px) {
+      .container {
+           clear: both;
+           width: 100%;
+           margin: 30px auto;     
+     }
+
+     body {
+           clear: both;
+           font-size: 16px;
+     }
+}
+
