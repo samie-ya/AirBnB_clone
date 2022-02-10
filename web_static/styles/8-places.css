@@ -64,7 +64,7 @@ div.information div.max_guest {
      display: inline-block;
      height: 100%;
      width: 100px;
-     background-image: url('/AirBnB_clone/web_static/images/icon_group.png');
+     background-image: url('/web_static/images/icon_group.png');
      background-repeat: no-repeat;
      background-position: top 10px left 50px;
      position: relative;
@@ -80,7 +80,7 @@ div.information .number_rooms {
      display: inline-block;
      height: 100%;
      width: 100px;
-     background-image: url('/AirBnB_clone/web_static/images/icon_bed.png');
+     background-image: url('/web_static/images/icon_bed.png');
      background-repeat: no-repeat;
      background-position: top 10px left 25px;
      position: relative;
@@ -97,7 +97,7 @@ div.information .number_bathrooms {
      display: inline-block;
      height: 100%;
      width: 100px;
-     background-image: url('/AirBnB_clone/web_static/images/icon_bath.png');
+     background-image: url('/web_static/images/icon_bath.png');
      background-repeat: no-repeat;
      background-position: left 10px;
      position: relative; 
