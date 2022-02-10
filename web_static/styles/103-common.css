@@ -1,4 +1,6 @@
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     color: #484848;
@@ -8,7 +10,7 @@ body {
 
 .container {
     max-width: 1000px;
-    margin: 30px auto;
+    margin-top: 30px auto;
 }
 
 
@@ -16,7 +18,7 @@ body {
 @media only screen and (max-width: 600px) {
       .container {
            clear: both;
-           width: 80%;
+           width: 100%;
            margin: 20px auto;     
      }
 
@@ -29,7 +31,7 @@ body {
 @media only screen and (max-width: 768px) and (min-width: 600px) {
       .container {
            clear: both;
-           width: 80%;
+           width: 100%;
            margin: 20px auto;     
      }
 
@@ -42,7 +44,7 @@ body {
 @media only screen and (min-width: 768px) {
       .container {
            clear: both;
-           width: 80%;
+           width: 100%;
            margin: 20px auto;     
      }
 

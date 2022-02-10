@@ -4,31 +4,31 @@
    <meta charset="utf-8">
    <title>AirBnB_clone</title>
    <link rel="stylesheet" href="styles/reset.css">
-   <link rel="stylesheet" href="styles/4-common.css">
-   <link rel="stylesheet" href="styles/3-header.css">
-   <link rel="stylesheet" href="styles/3-footer.css">
-   <link rel="stylesheet" href="styles/6-filters.css">
-   <link rel="stylesheet" href="styles/100-places.css">
+   <link rel="stylesheet" href="styles/103-common.css">
+   <link rel="stylesheet" href="styles/103-header.css">
+   <link rel="stylesheet" href="styles/103-footer.css">
+   <link rel="stylesheet" href="styles/103-filters.css">
+   <link rel="stylesheet" href="styles/103-places.css">
    <link rel="icon" href="images/icon.png">
  </head>
  <body> 
-   <header>
+   <header title="hbnb logo">
    </header>
    <div class="container">
       <section class="filters">
         <div class="locations">
-           <h3>States</h3>
-           <h4>California, Texas</h4>
+           <p class="filter_header"><strong>States</strong></p>
+           <p class="filter_list">California, Texas</p>
            <ul class="popover">
               <li>
-                <h2>California</h2>
+                <p class="filter_sublist"><strong>California</strong></p>
                 <ul>
                   <li>San Fransico</li>
                   <li>San Jose</li>
                 </ul>
               </li>
               <li>
-                  <h2>Texas</h2>
+                  <p class="filter_sublist"><strong>Texas</strong></p>
                   <ul>
                      <li>Houston</li>
                      <li>Dallas</li>
@@ -37,8 +37,8 @@
            </ul>
         </div>
         <div class="amenities">
-           <h3>Amenities</h3>
-           <h4>Internet, Swimming pool</h4>
+           <p class="filter_header"><strong>Amenities</strong></p>
+           <p class="filter_list">Internet, Swimming pool</p>
            <ul class="popover">
              <li>Internet</li>
              <li>Tv</li>
@@ -50,19 +50,20 @@
       </section>
       <section class="places">
         <h1>Places</h1>
-        <article>
+        <div class="art">
+         <article>
           <h2>My home</h2>
             <div class="price_by_night">
                <p>&#36;110</p>
             </div>
             <div class="information">
-              <div class="max_guest">
+              <div class="max_guest" title="Group of people">
                 <p>6 People</p>
               </div>
-              <div class="number_rooms">
+              <div class="number_rooms" title="Bed">
                 <p>5 Bedrooms</p>
               </div>
-              <div class="number_bathrooms">
+              <div class="number_bathrooms" title="Bath">
                 <p>3 Bathrooms</p>
               </div>
             </div>
@@ -79,23 +80,23 @@
               distance.</p>
             </div>
             <div class="amenities">
-               <h2>Amenities</h2>
+               <h3>Amenities</h3>
                   <ul>
-                    <li class="tv">Television</li>
-                    <li class="wifi">Wi-fi</li>
-                    <li class="pet">Pet-friendly</li>
+                    <li class="tv" title="TV">Television</li>
+                    <li class="wifi" title="Wi-Fi">Wi-fi</li>
+                    <li class="pet" title="Paw of a pet">Pet-friendly</li>
                   </ul>
             </div>
             <div class="reviews">
-               <h2>2 Reviews</h2>
+               <h3>2 Reviews</h3>
                   <ul>
                     <li>
-                      <h3>From The Adams family the 31st October 2013</h3>
+                      <p class="revs"><strong>From The Adams family the 31st October 2013</strong></p>
                           <p>Very bright, lots of windows, large garden, breathy
                              environment.</p>
                     </li>
                     <li>
-                      <h3>From Gary Hamming the 1st March 2018</h3>
+                      <p class="revs"><strong>From Gary Hamming the 1st March 2018</strong></p>
                           <p>Me and my buddies had a blast there. Really big house
                              great for parties, large garden, outdoor swimming pool.
                              I am celebrating my next birthday there, Gonna throw 
@@ -103,20 +104,20 @@
                     </li>
                   </ul>
             </div>
-        </article>
-        <article>
+         </article>
+         <article>
           <h2>Tiny House</h2>
             <div class="price_by_night">
               <p>&#36;50</p>
             </div>
             <div class="information">
-              <div class="max_guest">
+              <div class="max_guest" title="Group of people">
                 <p>3 People</p>
               </div>
-              <div class="number_rooms">
+              <div class="number_rooms" title="Bed">
                 <p>2 Bedrooms</p>
               </div>
-              <div class="number_bathrooms">
+              <div class="number_bathrooms" title="Bath">
                 <p>2 Bathrooms</p>
               </div>
             </div>
@@ -130,35 +131,35 @@
               terrace facing the beach.</p>
             </div>
             <div class="amenities">
-               <h2>Amenities</h2>
+               <h3>Amenities</h3>
                   <ul>
-                    <li class="tv">Television</li>
+                    <li class="tv" title="TV">Television</li>
                   </ul>
             </div>
             <div class="reviews">
-               <h2>1 Reviews</h2>
+               <h3>1 Reviews</h3>
                   <ul>
                     <li>
-                      <h3>From Meg Ryan the 7th July 2016</h3>
+                      <p class="revs"><strong>From Meg Ryan the 7th July 2016</strong></p>
                           <p>I don't recommend it for someone not used to the 
                              city noise. It is a cute apartment very cosy.</p>
                     </li>
                   </ul>
             </div>
-        </article>
-        <article>
+         </article>
+         <article>
           <h2>A Suite</h2>
             <div class="price_by_night">
                <p>&#36;90</p>
             </div>
             <div class="information">
-              <div class="max_guest">
+              <div class="max_guest" title="Group of people">
                  <p>4 People</p>
               </div>
-              <div class="number_rooms">
+              <div class="number_rooms" title="Bed">
                  <p>2 Bedrooms</p>
               </div>
-              <div class="number_bathrooms">
+              <div class="number_bathrooms" title="Bath">
                  <p>2 Bathrooms</p>
               </div>
             </div>
@@ -173,22 +174,22 @@
                room.</p>
             </div>
             <div class="amenities">
-               <h2>Amenities</h2>
+               <h3>Amenities</h3>
                   <ul>
-                    <li class="tv">Television</li>
-                    <li class="wifi">Wifi</li>
+                    <li class="tv" title="TV">Television</li>
+                    <li class="wifi" title="Wi-Fi">Wifi</li>
                   </ul>
             </div>
             <div class="reviews">
-               <h2>2 Reviews</h2>
+               <h3>2 Reviews</h3>
                   <ul>
                     <li>
-                      <h3>From Ryan Adams the 27th January 2017</h3>
+                      <p class="revs"><strong>From Ryan Adams the 27th January 2017</strong></p>
                           <p>Wonderful Hotel, Great staff, neatly kept rooms.
                              I will be here next time I come to the city.</p>
                     </li>
                     <li>
-                      <h3>From Bryan Willams the 31st January 2017</h3>
+                      <p class="revs"><strong>From Bryan Willams the 31st January 2017</strong></p>
                           <p>Great Serivce, really luxurious amenities. Only 
                              complaint was on the parking, It needs more parking
                              areas. The one you have is big, but it needs a bigger 
@@ -197,6 +198,7 @@
                   </ul>
             </div>
         </article>
+       </div>
       </section>
     </div>
     <footer>
